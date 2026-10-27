@@ -1,0 +1,834 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>すてっぷ愛知 新体操クラブ</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap">
+
+<style>
+/* =========================================
+   DESIGN TOKENS
+   Layout: Hero画像フルワイド → テキスト → 特徴 → 強み → クチコミ → アクセス → CTA
+   ========================================= */
+:root {
+  --bg:         #FFFFFF;
+  --bg-soft:    #F7F6F2;
+  --bg-dark:    #1A2340;
+  --fg:         #2C2C2C;
+  --fg-light:   #666660;
+  --accent:     #C8956C;
+  --accent-deep:#A87455;
+  --line:       #E8E5DF;
+
+  --font-display: 'Shippori Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --font-body:    'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  --max-w: 900px;
+  --radius: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:       #111827;
+    --bg-soft:  #1C2435;
+    --bg-dark:  #0D1520;
+    --fg:       #E8E4DC;
+    --fg-light: #9A9690;
+    --accent:   #D4A882;
+    --accent-deep: #C8956C;
+    --line:     #2A3040;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:       #111827;
+  --bg-soft:  #1C2435;
+  --bg-dark:  #0D1520;
+  --fg:       #E8E4DC;
+  --fg-light: #9A9690;
+  --accent:   #D4A882;
+  --accent-deep: #C8956C;
+  --line:     #2A3040;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter-r);
+  padding-block: 0;
+}
+
+/* ── Header ─────────────────────────────── */
+.site-header {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+.site-header .inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.site-header .logo a {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--fg);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.site-header .logo a:hover { color: var(--accent); }
+.site-header .header-cta a {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 9px 20px;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: background 0.2s;
+}
+.site-header .header-cta a:hover { background: var(--accent-deep); }
+
+/* ── Hero image ──────────────────────────── */
+.hero-image {
+  margin: 0 calc(-1 * var(--gutter));
+  width: calc(100% + var(--gutter) + var(--gutter-r));
+  max-height: 520px;
+  overflow: hidden;
+  position: relative;
+}
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  max-height: 520px;
+}
+
+/* ── Hero text ───────────────────────────── */
+.hero-text {
+  background: var(--bg-dark);
+  color: #fff;
+  padding: 56px var(--gutter);
+}
+.hero-text .inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.hero-text .eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.hero-text h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.4;
+  text-wrap: balance;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.hero-text .lead {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.75);
+  max-width: 600px;
+}
+.hero-cta {
+  margin-top: 32px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 14px 32px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--accent-deep); }
+.btn-ghost {
+  display: inline-block;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.85rem;
+  text-decoration: none;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  transition: color 0.2s, border-color 0.2s;
+}
+.btn-ghost:hover { color: #fff; border-color: #fff; }
+
+/* ── Section base ────────────────────────── */
+section { padding: 64px 0; }
+.inner { max-width: var(--max-w); margin: 0 auto; }
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.4;
+  text-wrap: balance;
+  margin-bottom: 32px;
+  color: var(--fg);
+}
+.divider {
+  width: 36px;
+  height: 2px;
+  background: var(--accent);
+  margin-bottom: 32px;
+}
+
+/* ── Feature (イチオシ) ──────────────────── */
+.feature-section { background: var(--bg-soft); }
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 8px;
+}
+.feature-card {
+  background: var(--bg);
+  padding: 28px 24px;
+  border-top: 3px solid var(--accent);
+}
+.feature-card .icon {
+  font-size: 1.5rem;
+  margin-bottom: 14px;
+  display: block;
+}
+.feature-card h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  color: var(--fg);
+}
+.feature-card p {
+  font-size: 0.85rem;
+  color: var(--fg-light);
+  line-height: 1.8;
+}
+
+/* ── Strengths ───────────────────────────── */
+.strength-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.strength-item {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 20px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+.strength-item:first-child { border-top: 1px solid var(--line); }
+.strength-num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  padding-top: 3px;
+}
+.strength-item h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--fg);
+}
+.strength-item p {
+  font-size: 0.87rem;
+  color: var(--fg-light);
+  line-height: 1.8;
+}
+
+/* ── Story ───────────────────────────────── */
+.story-section { background: var(--bg-dark); color: #fff; }
+.story-section .section-title { color: #fff; }
+.story-section .divider { background: var(--accent); }
+.story-quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.9);
+  border-left: 3px solid var(--accent);
+  padding-left: 24px;
+  max-width: 680px;
+}
+.story-name {
+  margin-top: 24px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.06em;
+}
+
+/* ── Reviews ─────────────────────────────── */
+.reviews-section { background: var(--bg-soft); }
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.review-card {
+  background: var(--bg);
+  padding: 28px 28px 24px;
+  border-radius: var(--radius);
+}
+.stars {
+  color: var(--accent);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.review-card p {
+  font-size: 0.9rem;
+  line-height: 1.9;
+  color: var(--fg);
+}
+
+/* ── Classes ─────────────────────────────── */
+.classes-section {}
+.class-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-top: 8px;
+}
+.class-item {
+  background: var(--bg);
+  padding: 24px 20px;
+  text-align: center;
+}
+.class-item .age {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.class-item .name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: var(--fg);
+}
+.class-item .desc {
+  font-size: 0.8rem;
+  color: var(--fg-light);
+  line-height: 1.7;
+}
+
+/* ── Upcoming ─────────────────────────────── */
+.upcoming-section { background: var(--bg-soft); }
+.upcoming-card {
+  background: var(--bg);
+  padding: 28px;
+  border-left: 4px solid var(--accent);
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.upcoming-tag {
+  display: inline-block;
+  background: var(--bg-soft);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.upcoming-body h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--fg);
+}
+.upcoming-body p {
+  font-size: 0.87rem;
+  color: var(--fg-light);
+  line-height: 1.8;
+}
+
+/* ── Access ──────────────────────────────── */
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 52%;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.map-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.map-btn-wrap {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.btn-map {
+  display: inline-block;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  padding: 11px 28px;
+  font-size: 0.87rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-map:hover { background: var(--accent); color: #fff; }
+.access-info {
+  font-size: 0.88rem;
+  color: var(--fg-light);
+  line-height: 2;
+}
+.access-info strong { color: var(--fg); font-weight: 600; }
+
+/* ── CTA Banner ──────────────────────────── */
+.cta-section {
+  background: var(--bg-dark);
+  color: #fff;
+  text-align: center;
+  padding: 72px 0;
+}
+.cta-section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-wrap: balance;
+}
+.cta-section p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 36px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.9;
+}
+.cta-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-lg {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 16px 40px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: background 0.2s;
+}
+.btn-lg:hover { background: var(--accent-deep); }
+
+/* ── Footer ──────────────────────────────── */
+footer {
+  background: #0D1219;
+  color: rgba(255,255,255,0.5);
+  padding: 40px 0 32px;
+  font-size: 0.8rem;
+}
+footer .inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.footer-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 8px;
+}
+.footer-address { line-height: 1.8; }
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+.footer-links a {
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: color 0.2s;
+  font-size: 0.82rem;
+}
+.footer-links a:hover { color: var(--accent); }
+.footer-sns {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 4px;
+}
+.footer-sns a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  font-size: 0.82rem;
+  transition: color 0.2s;
+}
+.footer-sns a:hover { color: var(--accent); }
+.sns-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .hero-text { padding: 44px 0; }
+  section { padding: 48px 0; }
+  .footer-links { align-items: flex-start; }
+  .footer-top { flex-direction: column; }
+  .strength-item { grid-template-columns: 32px 1fr; gap: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="inner">
+    <div class="logo">
+      <a href="https://steprg2003.wixsite.com/steprg" target="_blank" rel="noopener">
+        すてっぷ愛知 新体操クラブ
+      </a>
+    </div>
+    <div class="header-cta">
+      <a href="https://line.me/R/ti/p/@203jrzct?from=page&openQrModal=true&searchId=203jrzct" target="_blank" rel="noopener">
+        無料体験レッスン
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO IMAGE ============ -->
+<div class="hero-image">
+  <img src="images/hero.png" alt="すてっぷ愛知 新体操クラブ 練習風景">
+</div>
+
+<!-- ============ HERO TEXT ============ -->
+<div class="hero-text">
+  <div class="inner">
+    <p class="eyebrow">愛知県安城市 新安城駅 徒歩圏内</p>
+    <h1>美しいからだ、豊かな感性、<br>明るく強い心を育てる。</h1>
+    <p class="lead">
+      すてっぷ愛知 新体操クラブは、3歳のキッズから全日本級の舞台で活躍する選手まで、
+      一人ひとりの可能性を引き出す本格的な専用スタジオです。
+      論理的な指導と充実した設備で、新体操を通じた成長をサポートします。
+    </p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="https://line.me/R/ti/p/@203jrzct?from=page&openQrModal=true&searchId=203jrzct" target="_blank" rel="noopener">
+        無料体験レッスンを申し込む
+      </a>
+      <a class="btn-ghost" href="https://steprg2003.wixsite.com/steprg" target="_blank" rel="noopener">
+        公式サイトを見る
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FEATURE (イチオシ) ============ -->
+<section class="feature-section">
+  <div class="inner">
+    <p class="section-label">選ばれる理由</p>
+    <h2 class="section-title">すてっぷ愛知 新体操クラブの<br>6つの特長</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <span class="icon">🏟️</span>
+        <h3>本格的な専用練習設備</h3>
+        <p>新体操に必要な練習環境を完備したスタジオ。集中して取り組める専用空間で技術を磨けます。</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">👧</span>
+        <h3>3歳から対応</h3>
+        <p>キッズ・ジュニア・選手クラスと年齢や目的に合わせたクラス編成。はじめての方も安心して参加できます。</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">🏆</span>
+        <h3>全日本級の競技実績</h3>
+        <p>選手クラスは地元大会から全日本級の大会まで幅広く出場・活躍。高いレベルの指導が受けられます。</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">🎪</span>
+        <h3>アットホームな発表会</h3>
+        <p>年1回の発表会は飛び入り参加もあるなど、和やかで楽しい雰囲気。家族で楽しめるイベントです。</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">🚉</span>
+        <h3>新安城駅から徒歩圏内</h3>
+        <p>名鉄新安城駅から徒歩数分。お子さんのお迎えや送り出しがしやすい便利な立地です。</p>
+      </div>
+      <div class="feature-card">
+        <span class="icon">✨</span>
+        <h3>いつでも体験・見学OK</h3>
+        <p>無料体験や見学をいつでも受け入れています。まずは気軽に雰囲気をご確認ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STRENGTHS ============ -->
+<section class="classes-section">
+  <div class="inner">
+    <p class="section-label">指導陣・実績</p>
+    <h2 class="section-title">高い専門性と実績に<br>裏付けられた指導</h2>
+    <div class="strength-list">
+      <div class="strength-item">
+        <div class="strength-num">1</div>
+        <div>
+          <h3>全国レベルの競技実績</h3>
+          <p>選手クラスは地元の大会にとどまらず、全日本級の大会へも出場・活躍しています。実戦を通じて磨かれた指導力が、選手一人ひとりの成長を支えます。</p>
+        </div>
+      </div>
+      <div class="strength-item">
+        <div class="strength-num">2</div>
+        <div>
+          <h3>専門資格を持つ指導陣</h3>
+          <p>日本体操協会公認スポーツコーチや第1種審判員資格を持つコーチが在籍。競技規則に基づいた論理的なサポートで、技術の底上げを図ります。</p>
+        </div>
+      </div>
+      <div class="strength-item">
+        <div class="strength-num">3</div>
+        <div>
+          <h3>充実した専用設備</h3>
+          <p>新安城駅から徒歩数分の好立地に本格的な練習設備を完備したスタジオを構えています。余計なストレスなく、新体操に集中できる環境が整っています。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLASS LINEUP ============ -->
+<section class="feature-section">
+  <div class="inner">
+    <p class="section-label">クラス紹介</p>
+    <h2 class="section-title">年齢・目的に合わせた<br>クラス編成</h2>
+    <div class="class-grid">
+      <div class="class-item">
+        <div class="age">3歳〜</div>
+        <div class="name">キッズクラス</div>
+        <div class="desc">リズム感・柔軟性・表現力の基礎を楽しく習得</div>
+      </div>
+      <div class="class-item">
+        <div class="age">小学生〜</div>
+        <div class="name">ジュニアクラス</div>
+        <div class="desc">競技技術を体系的に学び、大会への参加も視野に</div>
+      </div>
+      <div class="class-item">
+        <div class="age">選手</div>
+        <div class="name">選手クラス</div>
+        <div class="desc">全日本級の大会を目指す本格的な競技指導</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STORY ============ -->
+<section class="story-section">
+  <div class="inner">
+    <p class="section-label">代表より</p>
+    <div class="divider"></div>
+    <blockquote class="story-quote">
+      「美しいからだ、豊かな感性、明るく強い心」の育成を掲げ、
+      本格的な専用練習設備を自ら完備しました。
+      初心者から全日本級の大会で活躍する選手まで、
+      一人ひとりの可能性を熱意を持って引き出し、
+      地域に根ざしたクラブを築き上げてきました。
+    </blockquote>
+    <p class="story-name">代表　神谷 智子</p>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="reviews-section">
+  <div class="inner">
+    <p class="section-label">クチコミ</p>
+    <h2 class="section-title">保護者の方々からの<br>声</h2>
+    <div class="review-list">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>
+          美しい選手の多いクラブチームだと思います。子供のやる気や自分で考えて行動する事を大切にしている先生なので、子供にやらされてる感はなくて、子供同士で学びあいながら、競いあいながら、新体操だけでなく、生きていくために必要な事が自然に身に付くと思います。
+        </p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>
+          娘がキッズクラスのときから7年通っています。自分からもっとできるようになりたいと思わせてくれる教え方なので、子どももやる気になります。新体操のおかげで姿勢がよくなりました。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UPCOMING ============ -->
+<section class="upcoming-section">
+  <div class="inner">
+    <p class="section-label">今後の取り組み</p>
+    <h2 class="section-title">さらなる充実に向けて</h2>
+    <div class="upcoming-card">
+      <span class="upcoming-tag">準備中</span>
+      <div class="upcoming-body">
+        <h3>管理栄養士・専門家によるワークショップ</h3>
+        <p>定期的なワークショップを開催予定。新体操のパフォーマンス向上に役立つ栄養知識や身体ケアについて、専門家から直接学べる機会を提供します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACCESS ============ -->
+<section class="classes-section">
+  <div class="inner">
+    <p class="section-label">アクセス</p>
+    <h2 class="section-title">新安城駅から<br>徒歩圏内</h2>
+    <div class="map-wrapper">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3268.6952997026397!2d137.0864334!3d34.9892962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6004993b211bfb29%3A0xb07b59a97f0e220b!2z44GZ44Gm44Gj44G35paw5L2T5pON44Kv44Op44OW!5e0!3m2!1sja!2sjp!4v1792558999463!5m2!1sja!2sjp"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        title="すてっぷ新体操クラブ 地図">
+      </iframe>
+    </div>
+    <div class="map-btn-wrap">
+      <a class="btn-map" href="https://www.google.com/maps/place/%E3%81%99%E3%81%A6%E3%81%A3%E3%81%B7%E6%96%B0%E4%BD%93%E6%93%8D%E3%82%AF%E3%83%A9%E3%83%96/@34.9892962,137.0864334,17z/data=!3m1!4b1!4m6!3m5!1s0x6004993b211bfb29:0xb07b59a97f0e220b!8m2!3d34.9892962!4d137.0864334!16s%2Fg%2F11h9_jq0br?authuser=0&entry=ttu&g_ep=EgoyMDI2MTAxOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
+        Googleマップで見る
+      </a>
+    </div>
+    <div class="access-info">
+      <p><strong>住所</strong>　〒446-0007 愛知県安城市東栄町２丁目６−５</p>
+      <p><strong>アクセス</strong>　名鉄名古屋本線 新安城駅より徒歩数分</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section">
+  <div class="inner">
+    <h2>まずは無料体験レッスンへ</h2>
+    <p>
+      見学・体験はいつでも受け付けています。<br>
+      お子さんのペースで、新体操の楽しさを体感してください。
+    </p>
+    <div class="cta-buttons">
+      <a class="btn-lg" href="https://line.me/R/ti/p/@203jrzct?from=page&openQrModal=true&searchId=203jrzct" target="_blank" rel="noopener">
+        LINEで体験申し込み
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="inner">
+    <div class="footer-top">
+      <div>
+        <p class="footer-name">すてっぷ愛知 新体操クラブ</p>
+        <p class="footer-address">
+          〒446-0007 愛知県安城市東栄町２丁目６−５<br>
+          名鉄新安城駅より徒歩数分
+        </p>
+      </div>
+      <div class="footer-links">
+        <a href="https://steprg2003.wixsite.com/steprg" target="_blank" rel="noopener">公式サイト</a>
+        <a href="https://line.me/R/ti/p/@203jrzct?from=page&openQrModal=true&searchId=203jrzct" target="_blank" rel="noopener">無料体験レッスン</a>
+        <div class="footer-sns">
+          <a href="https://www.instagram.com/step_aichi_rg/" target="_blank" rel="noopener" aria-label="Instagram">
+            <!-- Instagram official icon SVG -->
+            <svg class="sns-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <radialGradient id="ig-grad" cx="30%" cy="107%" r="130%">
+                  <stop offset="0%" stop-color="#fdf497"/>
+                  <stop offset="5%" stop-color="#fdf497"/>
+                  <stop offset="45%" stop-color="#fd5949"/>
+                  <stop offset="60%" stop-color="#d6249f"/>
+                  <stop offset="90%" stop-color="#285AEB"/>
+                </radialGradient>
+              </defs>
+              <rect width="24" height="24" rx="6" fill="url(#ig-grad)"/>
+              <circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="1.5" fill="none"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="white"/>
+              <rect x="3" y="3" width="18" height="18" rx="5" stroke="white" stroke-width="1.5" fill="none"/>
+            </svg>
+            Instagram
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; すてっぷ愛知 新体操クラブ All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body></html>
